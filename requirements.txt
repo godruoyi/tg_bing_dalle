@@ -6,3 +6,4 @@ pyweathercn
 openai
 pendulum
 slack_sdk
+flask
