@@ -31,7 +31,7 @@ class BaiduDriver(Driver):
         images = []
         for item in resp['data']:
             if 'image' in item:
-                images.append(io.BytesIO(item['image']))
+                images.append(item['image'])
 
         return images
 
