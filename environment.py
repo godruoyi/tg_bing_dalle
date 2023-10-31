@@ -113,6 +113,14 @@ Powered by {driver}"""
         return Environment.get_env("SLACK_CHAT_ID")
 
     @staticmethod
+    def get_qianfan_ak():
+        return Environment.get_env("QIANFAN_AK")
+
+    @staticmethod
+    def get_qianfan_sk():
+        return Environment.get_env("QIANFAN_SK")
+
+    @staticmethod
     def get_env(key: str, default: str = None):
         v = os.getenv(key)
         if v is None or v == "":

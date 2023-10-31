@@ -70,6 +70,14 @@ inputs:
     description: "Error message format"
     required: false
 
+  qianfan_ak:
+    description: "Qianfan AK"
+    required: false
+
+  qianfan_sk:
+    description: "Qianfan SK"
+    required: false
+
 runs:
   using: "docker"
   image: "Dockerfile"
@@ -90,6 +98,8 @@ runs:
     SEND_ERROR: ${{ inputs.send_error }}
     MESSAGE_FORMAT: ${{ inputs.message_format }}
     ERROR_MESSAGE_FORMAT: ${{ inputs.error_message_format }}
+    QIANFAN_AK: ${{ inputs.qianfan_ak }}
+    QIANFAN_SK: ${{ inputs.qianfan_sk }}
 
 branding:
   icon: 'package'

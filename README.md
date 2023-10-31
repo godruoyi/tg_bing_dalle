@@ -46,10 +46,10 @@ jobs:
       - name: Wakeup
         uses: godruoyi/wekeup@main
         with:
-          # image generator, support [bing_ball_e3, openai]
+          # image generator, support [bing_ball_e3, openai, baidu]
           # use comma to split multiple
           drivers: "bing_ball_e3"
-          
+
           # send message to channels, support [slack, tg]
           channels: "slack"
 
@@ -77,9 +77,14 @@ jobs:
           bing_auth_token: ${{ secrets.BING_AUTH_TOKEN }}
           bing_auth_token_kiev: ${{ secrets.BING_AUTH_TOKEN_KIEV }}
 
+          # baidu config required when use baidu qianfan driver
+          # https://cloud.baidu.com/doc/WENXINWORKSHOP/s/Klkqubb9w#%E9%94%99%E8%AF%AF%E7%A0%81
+          qianfan_ak: ${{ secrets.QIANFAN_AK }}
+          qianfan_sk: ${{ secrets.QIANFAN_SK }}
+
           # send error message when occur error
           send_error: "true"
-          
+
           # message format, available variables:
           # {weather} - weather
           # {sentence} - today's sentence
