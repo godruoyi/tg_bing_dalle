@@ -7,3 +7,5 @@ openai
 pendulum
 slack_sdk
 qianfan
+fastapi
+uvicorn
