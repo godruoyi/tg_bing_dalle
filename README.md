@@ -11,8 +11,8 @@ Use AI to create admirable images to surprise your every morning.
 - [x] 🐛 GitHub Action
 - [x] 🐕‍🦺 Support deploy to fly.io
 - [x] 🦉 Customizable message format
-- [] 🦟 Auto save logs to GitHub issues
-- [] 🐜 Capture output in GitHub Action
+- [ ] 🦟 Auto save logs to GitHub issues
+- [ ] 🐜 Capture output in GitHub Action
 
 ## Basic Usage
 
