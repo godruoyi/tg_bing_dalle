@@ -3,7 +3,7 @@ from .driver import Driver
 from environment import Environment
 
 
-class BingBallE3Driver(Driver):
+class BingDallE3Driver(Driver):
     auth_token: str = Environment.get_bing_auth_token()
     auth_token_kiev: str = Environment.get_bing_auth_token_kiev()
 

@@ -13,8 +13,8 @@ class Driver(ABC):
 
 def make_image_driver(driver: str) -> Driver:
     if driver == DRIVER_BING_BALL_E3:
-        from .bing_ball_e3 import BingBallE3Driver
-        return BingBallE3Driver()
+        from .bing_dall_e3 import BingDallE3Driver
+        return BingDallE3Driver()
     elif driver == DRIVER_OPENAI:
         from .openai import OpenAIDriver
         return OpenAIDriver()

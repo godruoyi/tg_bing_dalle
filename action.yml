@@ -47,6 +47,11 @@ inputs:
     description: "OpenAI API Key"
     required: false
 
+  dall_model:
+    description: "DALL-E model"
+    default: 'dall-e-3'
+    required: false
+
   channels:
     description: "Channels"
     default: 'tg'
@@ -93,6 +98,7 @@ runs:
     OPENAI_API_TYPE: ${{ inputs.openai_api_type }}
     OPENAI_API_VERSION: ${{ inputs.openai_api_version }}
     OPENAI_API_KEY: ${{ inputs.openai_api_key }}
+    DALL_MODEL: ${{ inputs.dall_model }}
     CHANNELS: ${{ inputs.channels }}
     DRIVERS: ${{ inputs.drivers }}
     SEND_ERROR: ${{ inputs.send_error }}

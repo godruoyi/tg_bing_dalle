@@ -16,6 +16,7 @@ class Environment:
     OPENAI_API_TYPE - OpenAI API type, default: open_ai
     OPENAI_API_VERSION - OpenAI API version, default: None
     OPENAI_API_KEY - OpenAI API key
+    DALL_MODEL - DALL model, default: dall-e-2, available: dall-e-2, dall-e-3
 
     CHANNELS - Notification channels, default: tg, use comma to separate multiple channels (tg, slack), will send
         multiple messages if multiple channels are specified
@@ -39,6 +40,7 @@ class Environment:
     MESSAGE_FORMAT - Message format
     ERROR_MESSAGE_FORMAT - Error message format
     """
+
     @staticmethod
     def get_city():
         return Environment.get_env("CITY", "chongqing")
@@ -57,7 +59,7 @@ class Environment:
 
     @staticmethod
     def get_openai_api_type():
-        return Environment.get_env("OPENAI_API_TYPE", "open_ai")
+        return Environment.get_env("OPENAI_API_TYPE", "openai")
 
     @staticmethod
     def get_openai_api_version():
@@ -66,6 +68,10 @@ class Environment:
     @staticmethod
     def get_openai_api_key():
         return Environment.get_env("OPENAI_API_KEY")
+
+    @staticmethod
+    def get_dall_model():
+        return Environment.get_env("DALL_MODEL", "dall-e-2")
 
     @staticmethod
     def get_tg_token():
@@ -126,6 +132,3 @@ Powered by {driver}"""
         if v is None or v == "":
             return default
         return v
-
-
-

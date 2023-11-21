@@ -109,6 +109,8 @@ jobs:
 
 #### Bing Driver
 
+> Since the OpenAI DALL E3 model is published now, we recommend using the OpenAI API Driver.
+
 1. Vist https://bing.com/create and login your Microsoft account(recommend to use GitHub login).
 2. Open the browser's developer tools and copy the cookie value of `_U` and `KievRPSAuth`.
 3. Set the cookie value to GitHub Secrets, the name is `BING_AUTH_TOKEN` and `BING_AUTH_TOKEN_KIEV`.
@@ -187,7 +189,7 @@ available prompt:
 
 see demo here: https://t.me/+9F-S1b2qyWEwYTU1
 
-## How to trigger
+## How to trigger on iPhone
 
 1. Install this GitHub Action in your repository, recommend to use your profile repository(such as [godruoyi/wakeup.yml](https://github.com/godruoyi/godruoyi/blob/master/.github/workflows/wakeup.yml)).
 2. Create a GitHub Token
