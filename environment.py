@@ -5,11 +5,14 @@ class Environment:
     """
     Environment variables:
 
+    DRIVERS - drivers, default: openai, use comma to separate multiple drivers (openai, bing_ball_e3, baidu)
+
     CITY - get weather for this city, default: chongqing
 
     # bing dall e3 image engine, not working now
-    BING_AUTH_TOKEN - Bing Image Search API token
-    BING_AUTH_TOKEN_KIEV - Bing Image Search API token for Kiev
+    BING_ALL_COOKIES - Bing Image Create all cookies
+    BING_AUTH_TOKEN - Bing Image Search API token - deprecated
+    BING_AUTH_TOKEN_KIEV - Bing Image Search API token for Kiev - deprecated
 
     # openai image engine
     OPENAI_API_BASE - OpenAI API base url, default: https://api.openai.com/v1
@@ -48,6 +51,10 @@ class Environment:
     @staticmethod
     def get_bing_auth_token():
         return Environment.get_env("BING_AUTH_TOKEN")
+
+    @staticmethod
+    def get_bing_cookies():
+        return Environment.get_env("BING_ALL_COOKIES")
 
     @staticmethod
     def get_bing_auth_token_kiev():

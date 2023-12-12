@@ -1,4 +1,4 @@
-# Wakeup Bot 
+# Wakeup Bot
 
 Use AI to create admirable images to surprise your every morning.
 
@@ -11,8 +11,6 @@ Use AI to create admirable images to surprise your every morning.
 - [x] 🐛 GitHub Action
 - [x] 🐕‍🦺 Support deploy to fly.io
 - [x] 🦉 Customizable message format
-- [ ] 🦟 Auto save logs to GitHub issues
-- [ ] 🐜 Capture output in GitHub Action
 
 ## Basic Usage
 
@@ -77,11 +75,8 @@ jobs:
           openai_api_version: "2023-06-01-preview"
           openai_api_key: ${{ secrets.OPENAI_API_KEY }}
 
-          # bing auth token config required when use bing_ball_e3 driver
-          # bing_auth_token: bing cookie that name is "_U"
-          # bing_auth_token_kiev: bing cookie that name is "KievRPSAuth"
-          bing_auth_token: ${{ secrets.BING_AUTH_TOKEN }}
-          bing_auth_token_kiev: ${{ secrets.BING_AUTH_TOKEN_KIEV }}
+          # bing cookies required when use bing_ball_e3 driver
+          bing_all_cookies: ${{ secrets.BING_ALL_COOKIES }}
 
           # baidu config required when use baidu qianfan driver
           # https://cloud.baidu.com/doc/WENXINWORKSHOP/s/Klkqubb9w#%E9%94%99%E8%AF%AF%E7%A0%81
@@ -102,20 +97,20 @@ jobs:
           error_message_format: "今天的天气: {weather}, 起床时间: {get_up_time}\r\n\r\n起床啦，虽然图片生成失败了，但今天依然是充满活力的一天，。\r\n\r\n今日诗句: {sentence}\r\n\r\n生成图片失败: {error} Driver: {driver}"
 ```
 
-
 ## How to configurate
 
-### Drivers
+### Image Generator Service Provider
 
 #### Bing Driver
 
-> Since the OpenAI DALL E3 model is published now, we recommend using the OpenAI API Driver.
-
 1. Vist https://bing.com/create and login your Microsoft account(recommend to use GitHub login).
-2. Open the browser's developer tools and copy the cookie value of `_U` and `KievRPSAuth`.
-3. Set the cookie value to GitHub Secrets, the name is `BING_AUTH_TOKEN` and `BING_AUTH_TOKEN_KIEV`.
+2. Try to create a new image and capture the request all cookies.
+3. Set the cookie value to GitHub Secrets, the name is `BING_ALL_COOKIES`.
 
 #### OpenAI Driver
+
+> use DALL E3 model by default, currently only support DALL E3 model, since the openai sdk does not support the E2 model
+> now.
 
 1. Get OpenAI API Key from OpenAI dashboard.
 2. Set the API Key to GitHub Secrets, the name is `OPENAI_API_KEY`.
@@ -131,8 +126,9 @@ OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
 #### Baidu Driver
 
-1. Get Baidu Qianfan API Key from [Baidu Qianfan dashboard](https://console.bce.baidu.com/qianfan/overview?_=1699757838186).
-2. Create a new application and make sure you have enabled the `Stable-Diffusion-XL` model. 
+1. Get Baidu Qianfan API Key
+   from [Baidu Qianfan dashboard](https://console.bce.baidu.com/qianfan/overview?_=1699757838186).
+2. Create a new application and make sure you have enabled the `Stable-Diffusion-XL` model.
 3. Set the API Key to GitHub Secrets, the `QIANFAN_AK` is your API Key, the `QIANFAN_SK` is your Secret Key.
 
 ### Channels
@@ -146,11 +142,11 @@ OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 5. If you don't know how to get the channel id, try to send anything to the JsonDumpBot, it will return the channel id.
 6. The chat id should be start with `-100`, like `-1002002109011`.
 
-
 #### Slack
 
 1. Create a new Slack App with [Slack App](https://api.slack.com/apps).
-2. Go to the `OAuth & Permissions` page and get the `Bot User OAuth Token`, set it to GitHub Secrets, the name is `SLACK_TOKEN`.
+2. Go to the `OAuth & Permissions` page and get the `Bot User OAuth Token`, set it to GitHub Secrets, the name
+   is `SLACK_TOKEN`.
 3. Go to the `OAuth & Permissions` scope page and add the `chat:write, files:write` scope.
 4. Install the app to your workspace.
 5. Create a new channel and copy the channel id, set it to GitHub Secrets, the name is `SLACK_CHAT_ID`.
@@ -158,9 +154,10 @@ OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
 ### Deploy
 
-#### Deploy to fly.io
+#### Deploy to fly.io - deprecated
 
-> Only support telegram channel now, when you finish the deployed, you should set the telegram bot webhook url to fly.io.
+> Only support telegram channel now, when you finish the deployed, you should set the telegram bot webhook url to
+> fly.io.
 
 1. Create your fly.io account and install flyctl.
 2. Clone this repository
@@ -191,9 +188,11 @@ see demo here: https://t.me/+9F-S1b2qyWEwYTU1
 
 ## How to trigger on iPhone
 
-1. Install this GitHub Action in your repository, recommend to use your profile repository(such as [godruoyi/wakeup.yml](https://github.com/godruoyi/godruoyi/blob/master/.github/workflows/wakeup.yml)).
+1. Install this GitHub Action in your repository, recommend to use your profile repository(such
+   as [godruoyi/wakeup.yml](https://github.com/godruoyi/godruoyi/blob/master/.github/workflows/wakeup.yml)).
 2. Create a GitHub Token
-3. Install this [Shortcuts](https://www.icloud.com/shortcuts/12071c4bfcbc4fc090ace637c8e43c84) on your iPhone and set your GitHub Token in the shortcut Dictionary.
+3. Install this [Shortcuts](https://www.icloud.com/shortcuts/12071c4bfcbc4fc090ace637c8e43c84) on your iPhone and set
+   your GitHub Token in the shortcut Dictionary.
 4. Run it anytime, anywhere.
 
 You can also use CURL to trigger this action, for example:
@@ -210,7 +209,6 @@ curl -X POST "https://api.github.com/repos/godruoyi/godruoyi/actions/workflows/w
 - @yihong0618
 - @BennyThink
 - @xenv
-
 
 ## Appreciation
 

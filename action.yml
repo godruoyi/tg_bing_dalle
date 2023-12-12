@@ -23,12 +23,18 @@ inputs:
     default: 'chongqing'
     required: false
 
+  # deprecated
   bing_auth_token:
     description: "Bing Auth Cookie (_U)"
     required: true
 
+  # deprecated
   bing_auth_token_kiev:
     description: "(optional) Bing Auth Cookie (Kiev)"
+    required: false
+
+  bing_all_cookies:
+    description: "Bing Auth Cookie (all cookies)"
     required: false
 
   openai_api_base:
@@ -89,6 +95,7 @@ runs:
   env:
     BING_AUTH_TOKEN: ${{ inputs.bing_auth_token }}
     BING_AUTH_TOKEN_KIEV: ${{ inputs.bing_auth_token_kiev }}
+    BING_ALL_COOKIES: ${{ inputs.bing_all_cookies }}
     TG_TOKEN: ${{ inputs.tg_token }}
     TG_CHAT_ID: ${{ inputs.tg_chat_id }}
     SLACK_TOKEN: ${{ inputs.slack_token }}

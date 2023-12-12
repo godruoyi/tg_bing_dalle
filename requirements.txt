@@ -9,3 +9,4 @@ slack-sdk==3.21.3
 qianfan==0.1.1
 fastapi==0.101.0
 uvicorn==0.15.0
+fake-useragent==1.4.0
