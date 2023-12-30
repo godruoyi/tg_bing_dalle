@@ -1,6 +1,6 @@
 import re
 
-from fastapi import FastAPI, Request, HTTPException
+from fastapi import FastAPI, Request
 from drivers import make_image_driver, DRIVER_DALL_E3, DRIVER_DALL_E2, DRIVER_BAIDU
 from environment import Environment
 from telebot import TeleBot, types
@@ -58,6 +58,11 @@ def process(message, driver):
         return
 
     media = [types.InputMediaPhoto(image) for image in images]
-    bot.send_media_group(reply_to_message_id=message.message_id, chat_id=message.chat.id, media=media, disable_notification=True)
+    bot.send_media_group(
+        reply_to_message_id=message.message_id,
+        chat_id=message.chat.id,
+        media=media,
+        disable_notification=True,
+    )
 
     return {"message": "done"}
